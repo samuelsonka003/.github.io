@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NOVA — Praktické veci pre každý deň</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#171717;background:#f7f7f7}
+header{background:#111;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:24px}.cart{background:white;color:#111;border:0;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}
+.hero{padding:60px 6%;background:white;text-align:center}.hero h1{font-size:42px;margin:0 0 12px}.hero p{font-size:18px;color:#666}
+.product{max-width:1050px;margin:35px auto;padding:25px;display:grid;grid-template-columns:1fr 1fr;gap:35px;background:white;border-radius:20px}
+.photo{min-height:350px;border-radius:16px;background:linear-gradient(135deg,#e9e9e9,#cfcfcf);display:flex;align-items:center;justify-content:center;font-size:90px}
+h2{font-size:32px;margin-top:10px}.price{font-size:28px;font-weight:800;margin:18px 0}.features{padding-left:20px;line-height:2}.buy{background:#111;color:white;border:0;border-radius:10px;padding:15px 25px;font-size:17px;font-weight:700;cursor:pointer;width:100%}
+section.info{max-width:1050px;margin:30px auto;padding:30px;background:white;border-radius:20px}.info h3{font-size:24px}
+footer{text-align:center;padding:30px;color:#777}
+.modal{display:none;position:fixed;inset:0;background:#0008;align-items:center;justify-content:center;padding:20px}.box{background:white;border-radius:18px;padding:25px;max-width:430px;width:100%}.box input{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:8px}.close{float:right;border:0;background:none;font-size:22px;cursor:pointer}.success{display:none;color:green;font-weight:700;margin-top:15px}
+@media(max-width:700px){.product{grid-template-columns:1fr}.hero h1{font-size:32px}.photo{min-height:250px}}
+</style>
+</head>
+<body>
+<header><div class="logo">NOVA</div><button class="cart" onclick="openCart()">🛒 Košík (<span id="count">0</span>)</button></header>
+
+<div class="hero">
+<h1>Jednoduchšie riešenia pre každý deň.</h1>
+<p>Ukážkový dropshipping obchod — zatiaľ bez reálnych platieb.</p>
+</div>
+
+<main class="product">
+<div class="photo">📦</div>
+<div>
+<h2>Smart organizér</h2>
+<p>Praktický organizér, ktorý pomáha udržať tvoje veci prehľadné a na jednom mieste.</p>
+<div class="price">19,99 €</div>
+<ul class="features"><li>Jednoduché používanie</li><li>Kompaktný dizajn</li><li>Vhodný na každodenné použitie</li></ul>
+<button class="buy" onclick="addToCart()">Pridať do košíka</button>
+</div>
+</main>
+
+<section class="info">
+<h3>Prečo NOVA?</h3>
+<p>Vyberáme praktické produkty, ktoré majú jednoduché použitie a riešia konkrétny každodenný problém.</p>
+</section>
+
+<footer>© 2026 NOVA · Toto je testovací obchod bez skutočnej platby.</footer>
+
+<div class="modal" id="modal">
+<div class="box">
+<button class="close" onclick="closeCart()">×</button>
+<h2>🛒 Košík</h2>
+<p id="cartText">Košík je prázdny.</p>
+<div id="orderForm" style="display:none">
+<input id="name" placeholder="Meno">
+<input id="email" type="email" placeholder="E-mail">
+<button class="buy" onclick="order()">Odoslať testovaciu objednávku</button>
+<p class="success" id="success">Objednávka bola úspešne simulovaná! 🎉</p>
+</div>
+</div></div>
+
+<script>
+let count=0;
+function addToCart(){count=1;document.getElementById('count').textContent=count;openCart()}
+function openCart(){document.getElementById('modal').style.display='flex';document.getElementById('cartText').textContent=count?'Smart organizér — 19,99 €':'Košík je prázdny.';document.getElementById('orderForm').style.display=count?'block':'none'}
+function closeCart(){document.getElementById('modal').style.display='none'}
+function order(){
+ const n=document.getElementById('name').value.trim(), e=document.getElementById('email').value.trim();
+ if(!n||!e){alert('Vyplň meno a e-mail.');return}
+ document.getElementById('success').style.display='block';
+}
+</script>
+</body>
+</html>
