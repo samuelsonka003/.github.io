@@ -3,347 +3,729 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SONSA™ | MagFlex™</title>
+
+<title>SONSA™  | MagFlex™</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7f7f7;
-    color: #111;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #070707;
+    color: #fff;
 }
 
+/* ================= HEADER ================= */
+
 header {
-    background: #111;
-    color: white;
-    padding: 22px 7%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 6%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5,5,5,0.78);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .logo {
-    font-size: 26px;
+    font-size: 25px;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 7px;
+}
+
+.logo span {
+    font-size: 9px;
+    vertical-align: top;
+    letter-spacing: 0;
+}
+
+.tagline {
+    color: #aaa;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+.brand-left {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
 }
 
 nav a {
-    color: white;
+    color: #ccc;
     text-decoration: none;
-    margin-left: 25px;
-    font-size: 14px;
+    font-size: 13px;
+    transition: .25s;
 }
 
+nav a:hover {
+    color: #fff;
+}
+
+/* ================= HERO ================= */
+
 .hero {
-    min-height: 620px;
+    min-height: 100vh;
+    padding: 150px 7% 90px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 70px 8%;
-    background: white;
-    gap: 50px;
+    gap: 70px;
+
+    background:
+        radial-gradient(circle at 75% 35%, rgba(180,130,70,.20), transparent 25%),
+        radial-gradient(circle at 90% 70%, rgba(255,255,255,.08), transparent 25%),
+        linear-gradient(115deg,#050505,#111 55%,#050505);
+
+    overflow: hidden;
 }
 
 .hero-text {
-    max-width: 550px;
+    width: 47%;
+    max-width: 620px;
 }
 
-.badge {
-    display: inline-block;
-    background: #111;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-bottom: 20px;
-}
+.small-label {
+    display: inline-flex;
+    padding: 8px 16px;
+    border: 1px solid rgba(220,190,140,.7);
+    border-radius: 30px;
 
-h1 {
-    font-size: 55px;
-    line-height: 1.05;
-    margin-bottom: 22px;
-}
-
-.hero-text p {
-    color: #555;
-    font-size: 18px;
-    line-height: 1.6;
+    color: #e3c99d;
+    font-size: 11px;
+    letter-spacing: 4px;
     margin-bottom: 25px;
 }
 
+.hero h1 {
+    font-size: clamp(55px,7vw,92px);
+    line-height: .94;
+    letter-spacing: -5px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #d9bd91;
+}
+
+.hero-description {
+    color: #bdbdbd;
+    line-height: 1.7;
+    font-size: 16px;
+    max-width: 530px;
+    margin-bottom: 30px;
+}
+
 .price {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 25px;
 }
 
-.buy {
-    display: inline-block;
-    background: #111;
-    color: white;
-    padding: 17px 32px;
-    border-radius: 10px;
+.price small {
+    font-size: 12px;
+    color: #777;
+    font-weight: 400;
+}
+
+.buy-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 17px 25px;
+    border-radius: 40px;
+
+    background: linear-gradient(135deg,#f1ddbd,#c7a878);
+    color: #111;
+
     text-decoration: none;
-    font-weight: bold;
-    transition: 0.2s;
+    font-weight: 800;
+    font-size: 14px;
+
+    transition: .3s;
 }
 
-.buy:hover {
-    transform: translateY(-2px);
-    opacity: 0.85;
+.buy-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(200,160,100,.25);
 }
 
-.product-box {
-    width: 430px;
-    height: 430px;
-    border-radius: 30px;
-    background: #eeeeee;
+.arrow {
+    font-size: 20px;
+}
+
+/* ================= PRODUCT VISUAL ================= */
+
+.product-area {
+    width: 48%;
+    min-height: 520px;
+
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 
-.phone-holder {
-    width: 230px;
-    height: 300px;
-    border-radius: 28px;
-    background: #151515;
-    position: relative;
-    box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+.glow {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+
+    background: radial-gradient(
+        circle,
+        rgba(224,174,99,.35),
+        transparent 65%
+    );
+
+    filter: blur(20px);
 }
 
-.phone-holder::before {
+.phone {
+    position: relative;
+    width: 220px;
+    height: 420px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(145deg,#333,#090909);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.8),
+        inset 0 0 0 2px #555;
+
+    transform: rotate(9deg);
+
+    z-index: 3;
+}
+
+.phone::before {
     content: "";
+
     position: absolute;
-    width: 90px;
-    height: 90px;
-    border: 9px solid #444;
+
+    width: 48px;
+    height: 48px;
+
+    top: 28px;
+    left: 25px;
+
+    border-radius: 14px;
+
+    background:
+        radial-gradient(circle at 30% 30%,#444,#111);
+
+    box-shadow:
+        0 0 0 2px #444;
+}
+
+.phone-screen {
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+
+    border-radius: 27px;
+
+    background:
+        radial-gradient(circle at 70% 30%,#333,transparent 30%),
+        linear-gradient(145deg,#161616,#030303);
+
+    z-index: -1;
+}
+
+.mount {
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
     border-radius: 50%;
-    top: 105px;
-    left: 70px;
+
+    background:
+        radial-gradient(circle,#333,#0b0b0b 65%);
+
+    border: 3px solid #555;
+
+    box-shadow:
+        0 0 0 10px rgba(255,255,255,.03),
+        0 0 70px rgba(224,174,99,.45);
+
+    right: 15%;
+    top: 47%;
+
+    z-index: 5;
 }
 
-.phone-holder::after {
+.mount::before {
     content: "SONSA";
+
     position: absolute;
-    color: #777;
-    font-size: 13px;
-    letter-spacing: 3px;
-    bottom: 25px;
-    width: 100%;
-    text-align: center;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    letter-spacing: 4px;
+    font-size: 15px;
+    font-weight: 700;
 }
 
-.section {
-    padding: 80px 8%;
-    text-align: center;
+.mount::after {
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    left: 17px;
+    top: 17px;
+
+    border-radius: 50%;
+
+    border: 2px solid #c9a774;
+
+    opacity: .8;
+
+    animation: pulse 2.5s infinite;
 }
 
-.section h2 {
-    font-size: 38px;
-    margin-bottom: 15px;
+@keyframes pulse {
+    0%,100% {
+        transform: scale(.94);
+        opacity: .4;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
 }
 
-.section-intro {
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto 45px;
-    line-height: 1.6;
-}
+/* ================= BENEFITS ================= */
 
-.features {
+.benefits {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1100px;
-    margin: auto;
+    grid-template-columns: repeat(4,1fr);
+
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+
+    background: #090909;
 }
 
-.feature {
-    background: white;
-    padding: 35px 25px;
-    border-radius: 18px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+.benefit {
+    padding: 45px 25px;
+    text-align: center;
+
+    border-right: 1px solid #222;
 }
 
-.feature-icon {
-    font-size: 40px;
+.benefit:last-child {
+    border-right: none;
+}
+
+.icon {
+    font-size: 30px;
     margin-bottom: 18px;
 }
 
-.feature h3 {
-    margin-bottom: 12px;
+.benefit h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
 }
 
-.feature p {
-    color: #666;
+.benefit p {
+    color: #888;
+    font-size: 13px;
     line-height: 1.5;
 }
 
+/* ================= HOW ================= */
+
 .how {
-    background: #111;
-    color: white;
+    padding: 110px 7%;
+
+    background: #f5f5f3;
+    color: #101010;
 }
 
-.how .section-intro {
-    color: #bbb;
+.section-label {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.how h2 {
+    font-size: clamp(42px,5vw,65px);
+    letter-spacing: -3px;
+    margin-bottom: 15px;
+}
+
+.intro {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 50px;
 }
 
 .steps {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1000px;
-    margin: auto;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
 }
 
 .step {
+    background: white;
+
     padding: 30px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 15px 45px rgba(0,0,0,.08);
 }
 
-.number {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background: white;
-    color: #111;
+.step-number {
+    width: 45px;
+    height: 45px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
-    font-weight: bold;
-    font-size: 20px;
+
+    border-radius: 50%;
+
+    background: #eee;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
 }
 
-.what {
-    background: white;
+.step h3 {
+    margin-bottom: 12px;
 }
 
-.product-info {
-    max-width: 800px;
-    margin: auto;
-    background: #f5f5f5;
-    padding: 40px;
-    border-radius: 20px;
-    line-height: 1.8;
+.step p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 14px;
 }
 
-.product-info strong {
-    color: #111;
+/* ================= PRODUCT DETAILS ================= */
+
+.details {
+    padding: 110px 7%;
+
+    background:
+        radial-gradient(circle at 80% 40%,rgba(180,130,70,.12),transparent 30%),
+        #090909;
 }
 
-.note {
-    margin-top: 25px;
-    font-size: 13px;
-    color: #777;
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
 }
+
+.details h2 {
+    font-size: clamp(42px,5vw,65px);
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.details p {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.checks {
+    list-style: none;
+}
+
+.checks li {
+    margin-bottom: 14px;
+    color: #ddd;
+}
+
+.checks li::before {
+    content: "✓";
+    color: #d5b786;
+    margin-right: 12px;
+}
+
+.box {
+    height: 420px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(145deg,#1d1d1d,#080808);
+
+    border-radius: 30px;
+
+    box-shadow:
+        inset 0 0 80px rgba(255,255,255,.03),
+        0 30px 70px rgba(0,0,0,.5);
+}
+
+.box-product {
+    width: 250px;
+    height: 160px;
+
+    background:
+        linear-gradient(145deg,#222,#050505);
+
+    border-radius: 8px;
+
+    box-shadow: 0 25px 50px rgba(0,0,0,.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: rotate(-8deg);
+}
+
+.box-product span {
+    letter-spacing: 5px;
+    font-weight: 700;
+}
+
+/* ================= CONTACT ================= */
 
 .contact {
-    background: #f0f0f0;
-    padding: 70px 20px;
+    padding: 100px 7%;
+
     text-align: center;
+
+    background:
+        radial-gradient(circle at 50% 20%,rgba(200,160,100,.15),transparent 30%),
+        #080808;
 }
 
 .contact h2 {
-    font-size: 35px;
+    font-size: 55px;
     margin-bottom: 15px;
 }
 
 .contact p {
-    color: #666;
-    margin-bottom: 20px;
+    color: #888;
+    margin-bottom: 30px;
 }
 
 .instagram {
-    display: inline-block;
-    background: #111;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 16px 27px;
+
+    border: 1px solid #555;
+    border-radius: 40px;
+
     color: white;
     text-decoration: none;
-    padding: 15px 25px;
-    border-radius: 10px;
-    font-weight: bold;
+
+    transition: .3s;
 }
+
+.instagram:hover {
+    border-color: #d5b786;
+    color: #d5b786;
+}
+
+/* ================= FOOTER ================= */
 
 footer {
-    background: #111;
-    color: #888;
-    text-align: center;
-    padding: 25px;
-    font-size: 13px;
+    padding: 30px 7%;
+
+    border-top: 1px solid #222;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #666;
+    font-size: 12px;
 }
+
+.footer-logo {
+    color: white;
+    letter-spacing: 5px;
+    font-weight: 700;
+}
+
+/* ================= MODAL ================= */
 
 .modal {
-    display: none;
     position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
+
+    inset: 0;
+
+    display: none;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+
+    background: rgba(0,0,0,.8);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 500;
 }
 
-.modal-content {
-    background: white;
-    max-width: 450px;
-    padding: 35px;
-    border-radius: 18px;
+.modal-box {
+    width: min(90%,450px);
+
+    padding: 40px;
+
+    background: #151515;
+
+    border: 1px solid #333;
+
+    border-radius: 25px;
+
     text-align: center;
 }
 
-.modal-content h2 {
+.modal-box h2 {
     margin-bottom: 15px;
 }
 
-.modal-content p {
-    color: #666;
+.modal-box p {
+    color: #999;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .close {
-    background: #111;
-    color: white;
-    border: none;
+    margin-top: 15px;
+
     padding: 12px 25px;
-    border-radius: 8px;
+
+    background: transparent;
+
+    border: 1px solid #444;
+
+    color: white;
+
+    border-radius: 30px;
+
     cursor: pointer;
 }
 
-@media (max-width: 800px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 55px 6%;
+/* ================= MOBILE ================= */
+
+@media(max-width:850px) {
+
+    header {
+        padding: 18px 5%;
     }
 
-    h1 {
-        font-size: 40px;
-    }
-
-    .product-box {
-        width: 320px;
-        height: 320px;
-    }
-
-    .features,
-    .steps {
-        grid-template-columns: 1fr;
+    .tagline {
+        display: none;
     }
 
     nav {
         display: none;
+    }
+
+    .hero {
+        padding: 130px 6% 70px;
+
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text,
+    .product-area {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+        letter-spacing: -3px;
+    }
+
+    .product-area {
+        min-height: 430px;
+    }
+
+    .phone {
+        width: 180px;
+        height: 340px;
+    }
+
+    .mount {
+        width: 145px;
+        height: 145px;
+        right: 8%;
+    }
+
+    .mount::after {
+        width: 112px;
+        height: 112px;
+    }
+
+    .benefits {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .benefit {
+        border-bottom: 1px solid #222;
+    }
+
+    .steps,
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .how,
+    .details {
+        padding: 80px 6%;
+    }
+
+    .contact h2 {
+        font-size: 45px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
     }
 }
 </style>
@@ -351,151 +733,328 @@ footer {
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-    <div class="logo">SONSA™</div>
+
+    <div class="brand-left">
+
+        <div class="logo">
+            SONSA<span>™</span>
+        </div>
+
+        <div class="tagline">
+            Kvalita. Štýl. Pohodlie.
+        </div>
+
+    </div>
 
     <nav>
         <a href="#produkt">Produkt</a>
         <a href="#vyhody">Výhody</a>
+        <a href="#ako">Ako to funguje</a>
         <a href="#kontakt">Kontakt</a>
     </nav>
+
 </header>
+
+
+<!-- HERO -->
 
 <section class="hero" id="produkt">
 
     <div class="hero-text">
 
-        <span class="badge">SONSA™ ORIGINAL</span>
+        <div class="small-label">
+            SONSA™ &nbsp; | &nbsp; 26
+        </div>
 
         <h1>
-            Telefón vždy presne tam, kde ho potrebuješ.
+            MagFlex<span>™</span>
         </h1>
 
-        <p>
-            MagFlex™ je praktický magnetický držiak telefónu do auta,
-            ktorý drží telefón na mieste a umožňuje jeho otočenie o 360°.
+        <p class="hero-description">
+
+            <strong style="color:white;">
+                Držiak, ktorý drží. Vždy a všade.
+            </strong>
+
+            <br><br>
+
+            MagFlex™ je prémiový magnetický držiak telefónu
+            do auta, ktorý kombinuje pevné uchytenie,
+            moderný dizajn a jednoduché používanie.
+
         </p>
 
-        <div class="price">7,99 €</div>
+        <div class="price">
+            7,99 €
+            <small> / kus</small>
+        </div>
 
-        <a href="#" class="buy" onclick="openModal(); return false;">
+        <a href="#" class="buy-button" onclick="openModal(); return false;">
+
             KÚPIŤ TERAZ
+
+            <span class="arrow">→</span>
+
         </a>
 
     </div>
 
-    <div class="product-box">
-        <div class="phone-holder"></div>
-    </div>
 
-</section>
+    <!-- PRODUCT -->
 
-<section class="section" id="vyhody">
+    <div class="product-area">
 
-    <h2>Prečo MagFlex™?</h2>
+        <div class="glow"></div>
 
-    <p class="section-intro">
-        Jednoduché riešenie pre pohodlnejšie používanie telefónu v aute.
-    </p>
+        <div class="phone">
 
-    <div class="features">
+            <div class="phone-screen"></div>
 
-        <div class="feature">
-            <div class="feature-icon">🧲</div>
-            <h3>Magnetické uchytenie</h3>
-            <p>
-                Telefón jednoducho pripevníš pomocou magnetického systému.
-            </p>
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">🔄</div>
-            <h3>360° otočenie</h3>
-            <p>
-                Nastav si telefón presne do uhla, ktorý ti vyhovuje.
-            </p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">🚗</div>
-            <h3>Ideálny do auta</h3>
-            <p>
-                Praktický pomocník na navigáciu a pohodlné používanie telefónu.
-            </p>
-        </div>
+        <div class="mount"></div>
 
     </div>
 
 </section>
 
-<section class="section how">
 
-    <h2>Ako to funguje?</h2>
+<!-- BENEFITS -->
 
-    <p class="section-intro">
-        Používanie MagFlex™ je jednoduché.
+<section class="benefits" id="vyhody">
+
+    <div class="benefit">
+
+        <div class="icon">🧲</div>
+
+        <h3>
+            Silné magnetické uchytenie
+        </h3>
+
+        <p>
+            Telefón drží pevne aj pri bežných otrasoch.
+        </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <div class="icon">↻</div>
+
+        <h3>
+            360° otočenie
+        </h3>
+
+        <p>
+            Nastav si ideálny uhol pre maximálne pohodlie.
+        </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <div class="icon">🚗</div>
+
+        <h3>
+            Ideálny do auta
+        </h3>
+
+        <p>
+            Navigácia, hovory a hudba na dosah.
+        </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <div class="icon">◇</div>
+
+        <h3>
+            Prémiový dizajn
+        </h3>
+
+        <p>
+            Minimalistický vzhľad, ktorý zapadne do interiéru.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="how" id="ako">
+
+    <div class="section-label">
+        JEDNODUCHÉ • RÝCHLE • EFEKTÍVNE
+    </div>
+
+    <h2>
+        Ako to funguje?
+    </h2>
+
+    <p class="intro">
+        Používanie MagFlex™ je jednoduché.<br>
+        Stačia tri kroky.
     </p>
+
 
     <div class="steps">
 
         <div class="step">
-            <div class="number">1</div>
-            <h3>Umiestni</h3>
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Umiestni
+            </h3>
+
             <p>
-                Priprav držiak na vhodné miesto v aute.
+                Priprav držiak na vhodné miesto
+                v aute.
             </p>
+
         </div>
 
-        <div class="step">
-            <div class="number">2</div>
-            <h3>Prilož telefón</h3>
-            <p>
-                Magnetický systém pomôže telefón bezpečne uchytiť.
-            </p>
-        </div>
 
         <div class="step">
-            <div class="number">3</div>
-            <h3>Nastav uhol</h3>
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Prilož telefón
+            </h3>
+
             <p>
-                Otoč telefón do polohy, ktorá ti vyhovuje.
+                Magnetický systém pomôže telefón
+                jednoducho uchytiť.
             </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Nastav uhol
+            </h3>
+
+            <p>
+                Otoč telefón do polohy,
+                ktorá ti vyhovuje.
+            </p>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="section what">
 
-    <h2>Čo dostaneš?</h2>
+<!-- PRODUCT DETAILS -->
 
-    <p class="section-intro">
-        Jednoduchý produkt bez zbytočností.
-    </p>
+<section class="details">
 
-    <div class="product-info">
+    <div class="details-grid">
 
-        <p>✓ Magnetický držiak MagFlex™</p>
-        <p>✓ Otočné uchytenie až o 360°</p>
-        <p>✓ Magnetický kovový krúžok</p>
-        <p>✓ Kompaktné prevedenie</p>
-        <p>✓ Jednoduché používanie</p>
+        <div>
 
-        <div class="note">
-            Bezdrôtové nabíjanie nie je súčasťou produktu.
+            <div class="section-label">
+                ČO DOSTANEŠ?
+            </div>
+
+            <h2>
+                Všetko,<br>
+                čo potrebuješ.
+            </h2>
+
+            <p>
+                Bez zbytočností. Len to,
+                čo má skutočný zmysel.
+                MagFlex™ je kompaktný,
+                praktický a pripravený na
+                každodenné používanie.
+            </p>
+
+
+            <ul class="checks">
+
+                <li>
+                    Magnetický držiak MagFlex™
+                </li>
+
+                <li>
+                    Otočné uchytenie až o 360°
+                </li>
+
+                <li>
+                    Magnetický kovový krúžok
+                </li>
+
+                <li>
+                    Kompaktné prevedenie
+                </li>
+
+                <li>
+                    Jednoduché používanie
+                </li>
+
+            </ul>
+
+            <p style="font-size:12px;color:#666;margin-top:25px;">
+                Bezdrôtové nabíjanie nie je súčasťou produktu.
+            </p>
+
+        </div>
+
+
+        <div class="box">
+
+            <div class="box-product">
+
+                <span>
+                    SONSA™
+                </span>
+
+            </div>
+
         </div>
 
     </div>
 
 </section>
+
+
+<!-- CONTACT -->
 
 <section class="contact" id="kontakt">
 
-    <h2>Kontakt</h2>
+    <div class="section-label">
+        SONSA™ 26
+    </div>
+
+    <h2>
+        Kontakt
+    </h2>
 
     <p>
-        Máš otázku alebo potrebuješ pomoc? Napíš nám na Instagram.
+        Máš otázku alebo potrebuješ pomoc?
+        Napíš nám na Instagram.
     </p>
 
     <a
@@ -504,26 +1063,52 @@ footer {
         target="_blank"
         rel="noopener noreferrer"
     >
-        📷 @sonsa_2024_
+
+        ◎
+
+        @sonsa_2024_
+
+        →
+
     </a>
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
 
-    © 2026 SONSA™ — Všetky práva vyhradené.
+    <div class="footer-logo">
+        SONSA™
+    </div>
+
+    <div>
+        © 2026 SONSA™ — Všetky práva vyhradené.
+    </div>
+
+    <div>
+        #SONSA26
+    </div>
 
 </footer>
 
+
+<!-- BUY MODAL -->
+
 <div class="modal" id="buyModal">
 
-    <div class="modal-content">
+    <div class="modal-box">
 
-        <h2>MagFlex™</h2>
+        <h2>
+            MagFlex™
+        </h2>
 
         <p>
-            Online objednávky a platby zatiaľ nie sú aktivované.
-            Ak máš záujem o produkt, kontaktuj SONSA™ cez Instagram.
+            Online objednávky a platby zatiaľ
+            nie sú aktivované.
+            Ak máš záujem o produkt,
+            kontaktuj SONSA™ cez Instagram.
         </p>
 
         <a
@@ -532,10 +1117,10 @@ footer {
             target="_blank"
             rel="noopener noreferrer"
         >
-            Instagram
+            @sonsa_2026_ →
         </a>
 
-        <br><br>
+        <br>
 
         <button class="close" onclick="closeModal()">
             Zavrieť
@@ -545,22 +1130,31 @@ footer {
 
 </div>
 
+
 <script>
 
 function openModal() {
+
     document.getElementById("buyModal").style.display = "flex";
+
 }
 
 function closeModal() {
+
     document.getElementById("buyModal").style.display = "none";
+
 }
 
 window.onclick = function(event) {
+
     const modal = document.getElementById("buyModal");
 
     if (event.target === modal) {
+
         modal.style.display = "none";
+
     }
+
 }
 
 </script>
