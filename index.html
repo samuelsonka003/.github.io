@@ -3,435 +3,348 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MagFlex™ | Magnetický držiak telefónu do auta</title>
+<title>SONSA™ | MagFlex™</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f6f7f9;
-  color:#111;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    color: #111;
 }
 
-header{
-  height:72px;
-  background:#fff;
-  border-bottom:1px solid #e8e8e8;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 7%;
-  position:sticky;
-  top:0;
-  z-index:20;
+header {
+    background: #111;
+    color: white;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.logo{
-  font-size:25px;
-  font-weight:800;
-  letter-spacing:-1px;
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
-.logo span{
-  color:#555;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
 }
 
-nav{
-  display:flex;
-  gap:28px;
+.hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 8%;
+    background: white;
+    gap: 50px;
 }
 
-nav a{
-  text-decoration:none;
-  color:#333;
-  font-size:14px;
-  font-weight:600;
+.hero-text {
+    max-width: 550px;
 }
 
-.hero{
-  background:#111;
-  color:#fff;
-  padding:90px 7%;
-  text-align:center;
+.badge {
+    display: inline-block;
+    background: #111;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 20px;
 }
 
-.badge{
-  display:inline-block;
-  background:#fff;
-  color:#111;
-  padding:8px 14px;
-  border-radius:30px;
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:22px;
+h1 {
+    font-size: 55px;
+    line-height: 1.05;
+    margin-bottom: 22px;
 }
 
-.hero h1{
-  font-size:52px;
-  max-width:850px;
-  margin:auto;
-  line-height:1.05;
-  letter-spacing:-2px;
+.hero-text p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
-.hero p{
-  max-width:650px;
-  margin:24px auto 0;
-  color:#cfcfcf;
-  font-size:18px;
-  line-height:1.7;
+.price {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 20px;
+.buy {
+    display: inline-block;
+    background: #111;
+    color: white;
+    padding: 17px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
-.product{
-  background:#fff;
-  border-radius:28px;
-  padding:40px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:55px;
-  box-shadow:0 15px 45px rgba(0,0,0,.07);
+.buy:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
 }
 
-.visual{
-  min-height:470px;
-  border-radius:22px;
-  background:linear-gradient(145deg,#e9eaec,#ffffff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  position:relative;
+.product-box {
+    width: 430px;
+    height: 430px;
+    border-radius: 30px;
+    background: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 
-.visual:before{
-  content:"";
-  position:absolute;
-  width:290px;
-  height:290px;
-  border-radius:50%;
-  background:#ddd;
-  opacity:.5;
+.phone-holder {
+    width: 230px;
+    height: 300px;
+    border-radius: 28px;
+    background: #151515;
+    position: relative;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.35);
 }
 
-.holder{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  background:linear-gradient(145deg,#202020,#050505);
-  box-shadow:0 25px 45px rgba(0,0,0,.3);
-  position:relative;
-  z-index:2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.phone-holder::before {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 9px solid #444;
+    border-radius: 50%;
+    top: 105px;
+    left: 70px;
 }
 
-.holder:after{
-  content:"MAGFLEX";
-  color:#777;
-  font-size:13px;
-  letter-spacing:3px;
-  font-weight:bold;
+.phone-holder::after {
+    content: "SONSA";
+    position: absolute;
+    color: #777;
+    font-size: 13px;
+    letter-spacing: 3px;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
 }
 
-.arm{
-  position:absolute;
-  width:100px;
-  height:32px;
-  background:#151515;
-  border-radius:20px;
-  right:-60px;
-  top:95px;
-  transform:rotate(-15deg);
+.section {
+    padding: 80px 8%;
+    text-align: center;
 }
 
-.magnet{
-  width:55px;
-  height:55px;
-  border:7px solid #777;
-  border-radius:50%;
-  position:absolute;
+.section h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
 }
 
-.product-info{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+.section-intro {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 45px;
+    line-height: 1.6;
 }
 
-.small-label{
-  color:#777;
-  font-size:13px;
-  font-weight:bold;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  margin-bottom:12px;
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
 }
 
-.product-info h2{
-  font-size:40px;
-  line-height:1.1;
-  margin-bottom:18px;
+.feature {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
 }
 
-.description{
-  color:#666;
-  font-size:17px;
-  line-height:1.7;
-  margin-bottom:25px;
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 18px;
 }
 
-.price{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:25px;
+.feature h3 {
+    margin-bottom: 12px;
 }
 
-.price-main{
-  font-size:38px;
-  font-weight:800;
+.feature p {
+    color: #666;
+    line-height: 1.5;
 }
 
-.price-note{
-  color:#777;
-  font-size:13px;
+.how {
+    background: #111;
+    color: white;
 }
 
-.buy{
-  width:100%;
-  border:none;
-  background:#111;
-  color:white;
-  padding:18px;
-  border-radius:12px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s;
+.how .section-intro {
+    color: #bbb;
 }
 
-.buy:hover{
-  transform:translateY(-2px);
-  background:#292929;
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.shipping{
-  text-align:center;
-  color:#777;
-  font-size:12px;
-  margin-top:13px;
+.step {
+    padding: 30px;
 }
 
-.section-title{
-  text-align:center;
-  margin-bottom:35px;
+.number {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: white;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.section-title h2{
-  font-size:36px;
-  margin-bottom:10px;
+.what {
+    background: white;
 }
 
-.section-title p{
-  color:#777;
+.product-info {
+    max-width: 800px;
+    margin: auto;
+    background: #f5f5f5;
+    padding: 40px;
+    border-radius: 20px;
+    line-height: 1.8;
 }
 
-.features{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+.product-info strong {
+    color: #111;
 }
 
-.feature{
-  background:#fff;
-  border-radius:20px;
-  padding:30px 25px;
-  text-align:center;
-  box-shadow:0 8px 25px rgba(0,0,0,.04);
+.note {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #777;
 }
 
-.icon{
-  width:55px;
-  height:55px;
-  margin:0 auto 18px;
-  border-radius:50%;
-  background:#111;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:23px;
+.contact {
+    background: #f0f0f0;
+    padding: 70px 20px;
+    text-align: center;
 }
 
-.feature h3{
-  margin-bottom:10px;
+.contact h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
 }
 
-.feature p{
-  color:#777;
-  line-height:1.6;
-  font-size:14px;
+.contact p {
+    color: #666;
+    margin-bottom: 20px;
 }
 
-.how{
-  background:#111;
-  color:#fff;
-  border-radius:28px;
-  padding:55px;
-  margin-top:70px;
+.instagram {
+    display: inline-block;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
-.how h2{
-  text-align:center;
-  font-size:35px;
-  margin-bottom:40px;
+footer {
+    background: #111;
+    color: #888;
+    text-align: center;
+    padding: 25px;
+    font-size: 13px;
 }
 
-.steps{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.step{
-  text-align:center;
+.modal-content {
+    background: white;
+    max-width: 450px;
+    padding: 35px;
+    border-radius: 18px;
+    text-align: center;
 }
 
-.number{
-  width:42px;
-  height:42px;
-  border:1px solid #777;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 15px;
+.modal-content h2 {
+    margin-bottom: 15px;
 }
 
-.step p{
-  color:#aaa;
-  margin-top:8px;
-  line-height:1.5;
-  font-size:14px;
+.modal-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.info{
-  margin-top:70px;
-  background:#fff;
-  border-radius:25px;
-  padding:40px;
+.close {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.info h2{
-  margin-bottom:18px;
-}
+@media (max-width: 800px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 55px 6%;
+    }
 
-.info p{
-  color:#666;
-  line-height:1.8;
-  margin-bottom:15px;
-}
+    h1 {
+        font-size: 40px;
+    }
 
-footer{
-  background:#111;
-  color:#888;
-  text-align:center;
-  padding:45px 20px;
-  margin-top:70px;
-}
+    .product-box {
+        width: 320px;
+        height: 320px;
+    }
 
-footer strong{
-  color:#fff;
-}
+    .features,
+    .steps {
+        grid-template-columns: 1fr;
+    }
 
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:100;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.modal-box{
-  background:#fff;
-  max-width:470px;
-  width:100%;
-  border-radius:22px;
-  padding:35px;
-  text-align:center;
-}
-
-.modal-box h2{
-  margin-bottom:15px;
-}
-
-.modal-box p{
-  color:#666;
-  line-height:1.6;
-  margin-bottom:25px;
-}
-
-.close{
-  float:right;
-  cursor:pointer;
-  font-size:25px;
-}
-
-@media(max-width:750px){
-
-  header{
-    padding:0 20px;
-  }
-
-  nav{
-    display:none;
-  }
-
-  .hero{
-    padding:65px 20px;
-  }
-
-  .hero h1{
-    font-size:38px;
-  }
-
-  .product{
-    grid-template-columns:1fr;
-    padding:22px;
-  }
-
-  .visual{
-    min-height:330px;
-  }
-
-  .product-info h2{
-    font-size:32px;
-  }
-
-  .features,
-  .steps{
-    grid-template-columns:1fr;
-  }
-
-  .how{
-    padding:35px 20px;
-  }
+    nav {
+        display: none;
+    }
 }
 </style>
 </head>
@@ -439,285 +352,215 @@ footer strong{
 <body>
 
 <header>
-  <div class="logo">NOVA<span>™</span></div>
+    <div class="logo">SONSA™</div>
 
-  <nav>
-    <a href="#produkt">Produkt</a>
-    <a href="#vyhody">Výhody</a>
-    <a href="#ako">Ako funguje</a>
-  </nav>
+    <nav>
+        <a href="#produkt">Produkt</a>
+        <a href="#vyhody">Výhody</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
 </header>
 
+<section class="hero" id="produkt">
 
-<section class="hero">
+    <div class="hero-text">
 
-  <div class="badge">NOVINKA • MAGFLEX™</div>
+        <span class="badge">SONSA™ ORIGINAL</span>
 
-  <h1>
-    Telefón vždy presne tam, kde ho potrebuješ.
-  </h1>
+        <h1>
+            Telefón vždy presne tam, kde ho potrebuješ.
+        </h1>
 
-  <p>
-    Jednoduchý magnetický držiak do auta s 360° nastavením.
-    Menej hľadania telefónu. Viac pohodlia pri každodennej jazde.
-  </p>
+        <p>
+            MagFlex™ je praktický magnetický držiak telefónu do auta,
+            ktorý drží telefón na mieste a umožňuje jeho otočenie o 360°.
+        </p>
+
+        <div class="price">7,99 €</div>
+
+        <a href="#" class="buy" onclick="openModal(); return false;">
+            KÚPIŤ TERAZ
+        </a>
+
+    </div>
+
+    <div class="product-box">
+        <div class="phone-holder"></div>
+    </div>
 
 </section>
 
+<section class="section" id="vyhody">
 
-<main class="container" id="produkt">
+    <h2>Prečo MagFlex™?</h2>
 
-  <section class="product">
-
-    <div class="visual">
-
-      <div class="holder">
-        <div class="magnet"></div>
-        <div class="arm"></div>
-      </div>
-
-    </div>
-
-
-    <div class="product-info">
-
-      <div class="small-label">
-        NOVA • Auto doplnky
-      </div>
-
-      <h2>
-        MagFlex™
-      </h2>
-
-      <p class="description">
-        Magnetický držiak telefónu do auta s otočným uchytením
-        o 360°. Telefón môžeš nastaviť do polohy, ktorá ti
-        najviac vyhovuje.
-      </p>
-
-
-      <div class="price">
-
-        <div class="price-main">
-          7,99 €
-        </div>
-
-        <div class="price-note">
-          / 1 kus
-        </div>
-
-      </div>
-
-
-      <button class="buy" onclick="openModal()">
-        KÚPIŤ TERAZ
-      </button>
-
-      <div class="shipping">
-        Bezdrôtové nabíjanie nie je súčasťou produktu.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="vyhody" style="padding-top:90px;">
-
-    <div class="section-title">
-
-      <h2>
-        Prečo MagFlex™?
-      </h2>
-
-      <p>
-        Praktický doplnok pre každodenné používanie telefónu v aute.
-      </p>
-
-    </div>
-
+    <p class="section-intro">
+        Jednoduché riešenie pre pohodlnejšie používanie telefónu v aute.
+    </p>
 
     <div class="features">
 
-      <div class="feature">
+        <div class="feature">
+            <div class="feature-icon">🧲</div>
+            <h3>Magnetické uchytenie</h3>
+            <p>
+                Telefón jednoducho pripevníš pomocou magnetického systému.
+            </p>
+        </div>
 
-        <div class="icon">🧲</div>
+        <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <h3>360° otočenie</h3>
+            <p>
+                Nastav si telefón presne do uhla, ktorý ti vyhovuje.
+            </p>
+        </div>
 
-        <h3>
-          Magnetické uchytenie
-        </h3>
-
-        <p>
-          Telefón sa uchytáva pomocou magnetického systému
-          a súčasťou je aj kovový krúžok.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="icon">↻</div>
-
-        <h3>
-          360° nastavenie
-        </h3>
-
-        <p>
-          Nastav si telefón podľa toho, ako ho potrebuješ
-          sledovať alebo používať.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="icon">🚗</div>
-
-        <h3>
-          Praktický do auta
-        </h3>
-
-        <p>
-          Vhodný na pohodlnejšie používanie navigácie
-          a telefónu počas jazdy.
-        </p>
-
-      </div>
+        <div class="feature">
+            <div class="feature-icon">🚗</div>
+            <h3>Ideálny do auta</h3>
+            <p>
+                Praktický pomocník na navigáciu a pohodlné používanie telefónu.
+            </p>
+        </div>
 
     </div>
 
-  </section>
+</section>
 
+<section class="section how">
 
-  <section class="how" id="ako">
+    <h2>Ako to funguje?</h2>
 
-    <h2>
-      Ako MagFlex™ funguje?
-    </h2>
+    <p class="section-intro">
+        Používanie MagFlex™ je jednoduché.
+    </p>
 
     <div class="steps">
 
-      <div class="step">
+        <div class="step">
+            <div class="number">1</div>
+            <h3>Umiestni</h3>
+            <p>
+                Priprav držiak na vhodné miesto v aute.
+            </p>
+        </div>
 
-        <div class="number">1</div>
+        <div class="step">
+            <div class="number">2</div>
+            <h3>Prilož telefón</h3>
+            <p>
+                Magnetický systém pomôže telefón bezpečne uchytiť.
+            </p>
+        </div>
 
-        <h3>
-          Umiestni držiak
-        </h3>
-
-        <p>
-          Priprav držiak na miesto, kde ho chceš používať.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="number">2</div>
-
-        <h3>
-          Pripoj telefón
-        </h3>
-
-        <p>
-          Použi magnetický systém a príslušný kovový krúžok.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="number">3</div>
-
-        <h3>
-          Nastav polohu
-        </h3>
-
-        <p>
-          Otoč telefón do polohy, ktorá ti vyhovuje.
-        </p>
-
-      </div>
+        <div class="step">
+            <div class="number">3</div>
+            <h3>Nastav uhol</h3>
+            <p>
+                Otoč telefón do polohy, ktorá ti vyhovuje.
+            </p>
+        </div>
 
     </div>
 
-  </section>
+</section>
 
+<section class="section what">
 
-  <section class="info">
+    <h2>Čo dostaneš?</h2>
 
-    <h2>
-      Čo dostaneš?
-    </h2>
-
-    <p>
-      ✓ MagFlex™ magnetický držiak
+    <p class="section-intro">
+        Jednoduchý produkt bez zbytočností.
     </p>
 
-    <p>
-      ✓ Magnetický kovový krúžok
-    </p>
+    <div class="product-info">
+
+        <p>✓ Magnetický držiak MagFlex™</p>
+        <p>✓ Otočné uchytenie až o 360°</p>
+        <p>✓ Magnetický kovový krúžok</p>
+        <p>✓ Kompaktné prevedenie</p>
+        <p>✓ Jednoduché používanie</p>
+
+        <div class="note">
+            Bezdrôtové nabíjanie nie je súčasťou produktu.
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact" id="kontakt">
+
+    <h2>Kontakt</h2>
 
     <p>
-      ✓ 360° otočné nastavenie
+        Máš otázku alebo potrebuješ pomoc? Napíš nám na Instagram.
     </p>
 
-    <p>
-      ✓ Jednoduchý minimalistický dizajn
-    </p>
+    <a
+        class="instagram"
+        href="https://www.instagram.com/sonsa_2024_/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        📷 @sonsa_2024_
+    </a>
 
-  </section>
-
-</main>
-
+</section>
 
 <footer>
 
-  <strong>NOVA™</strong><br><br>
-
-  Praktické produkty pre každý deň.<br><br>
-
-  © 2026 NOVA
+    © 2026 SONSA™ — Všetky práva vyhradené.
 
 </footer>
 
+<div class="modal" id="buyModal">
 
-<div class="modal" id="modal">
+    <div class="modal-content">
 
-  <div class="modal-box">
+        <h2>MagFlex™</h2>
 
-    <span class="close" onclick="closeModal()">×</span>
+        <p>
+            Online objednávky a platby zatiaľ nie sú aktivované.
+            Ak máš záujem o produkt, kontaktuj SONSA™ cez Instagram.
+        </p>
 
-    <h2>
-      MagFlex™
-    </h2>
+        <a
+            class="instagram"
+            href="https://www.instagram.com/sonsa_2024_/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Instagram
+        </a>
 
-    <p>
-      Produktovú stránku máme pripravenú. Reálne objednávky
-      a platby však zatiaľ nie sú aktivované.
-    </p>
+        <br><br>
 
-    <button class="buy" onclick="closeModal()">
-      SPÄŤ NA PRODUKT
-    </button>
+        <button class="close" onclick="closeModal()">
+            Zavrieť
+        </button>
 
-  </div>
+    </div>
 
 </div>
 
-
 <script>
 
-function openModal(){
-  document.getElementById("modal").style.display="flex";
+function openModal() {
+    document.getElementById("buyModal").style.display = "flex";
 }
 
-function closeModal(){
-  document.getElementById("modal").style.display="none";
+function closeModal() {
+    document.getElementById("buyModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById("buyModal");
+
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 }
 
 </script>
