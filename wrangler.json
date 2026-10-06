@@ -1,6 +1,6 @@
 {
   "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
-  "name": "sonsa-store",
+  "name": "github-io",
   "main": "worker.js",
   "compatibility_date": "2026-10-02",
   "assets": {
