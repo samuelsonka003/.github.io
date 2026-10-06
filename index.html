@@ -1,1 +1,166 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SONSA™ — Smart things. Better everyday.</title>
+<meta name="description" content="SONSA™ — moderné a praktické produkty pre každý deň.">
+<style>
+:root{--black:#111;--muted:#666;--line:#e7e7e7;--soft:#f6f6f6;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Poppins,Inter,Arial,sans-serif;color:var(--black);background:#fff}button,input,textarea{font:inherit}button{cursor:pointer}
+header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);z-index:20}
+.logo{font-weight:900;letter-spacing:7px;font-size:22px}.logo sup{font-size:9px;letter-spacing:1px}
+nav{display:flex;gap:28px;align-items:center}nav a{text-decoration:none;color:#111;font-weight:600;font-size:14px}
+.cart-btn{border:0;background:#111;color:#fff;border-radius:999px;padding:11px 16px;font-weight:800}.count{background:#fff;color:#111;border-radius:999px;padding:1px 6px;margin-left:5px}
+.hero{min-height:610px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:70px 8%}
+.badge{display:inline-block;background:#111;color:#fff;padding:8px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(52px,7vw,92px);line-height:.92;margin:24px 0 20px;letter-spacing:-4px}.hero p{font-size:18px;line-height:1.7;color:#555;max-width:590px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;background:#111;color:#fff;padding:15px 23px;border-radius:10px;font-weight:800;text-decoration:none}.btn.secondary{background:#fff;color:#111;border:1px solid #111}.hero-art{background:#eee;border-radius:30px;min-height:430px;display:flex;align-items:center;justify-content:center;overflow:hidden}.hero-art .light{width:260px;height:150px;border-radius:22px;background:#222;box-shadow:0 30px 60px rgba(0,0,0,.25);position:relative}.hero-art .light:before{content:"";position:absolute;width:28px;height:28px;border-radius:50%;border:3px solid #aaa;left:50%;top:50%;transform:translate(-50%,-50%)}.hero-art .light:after{content:"SONSA™";position:absolute;bottom:15px;left:0;right:0;text-align:center;color:#ddd;font-size:10px;letter-spacing:3px;font-weight:800}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);background:#111;color:#fff}.strip>div{padding:36px 25px;text-align:center;border-right:1px solid #333}.strip b{display:block;margin-bottom:8px}.strip span{color:#aaa;font-size:13px}
+section{padding:90px 8%}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:38px}.section-head h2{font-size:42px;margin:0;letter-spacing:-2px}.section-head p{color:#666;max-width:430px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}.card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}.product-img{height:340px;background:#f1f1f1;display:flex;align-items:center;justify-content:center}.led-art{width:280px;height:110px;border-radius:20px;background:#242424;box-shadow:0 25px 50px rgba(0,0,0,.22);position:relative}.led-art:before{content:"";position:absolute;left:22px;right:22px;top:50%;height:4px;background:#eee;border-radius:10px;box-shadow:0 0 25px 8px rgba(255,255,255,.35)}.organizer-art{width:250px;height:190px;border-radius:20px;background:#202020;position:relative;box-shadow:0 25px 50px rgba(0,0,0,.22)}.organizer-art:before{content:"SONSA™";position:absolute;left:0;right:0;top:78px;text-align:center;color:#ddd;letter-spacing:4px;font-weight:800;font-size:12px}.card-body{padding:24px}.card h3{margin:0 0 7px;font-size:24px}.desc{color:#666;line-height:1.6;min-height:52px}.price{font-size:22px;font-weight:900;margin:17px 0}.card-actions{display:flex;gap:10px}.card-actions button{flex:1}
+.about{background:#111;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:70px}.about p{color:#bbb;line-height:1.8}.policy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.policy{border:1px solid var(--line);padding:24px;border-radius:16px}.policy h3{margin-top:0}
+footer{background:#111;color:#fff;padding:55px 8%;display:flex;justify-content:space-between;gap:40px}.footer-links{display:flex;gap:20px;flex-wrap:wrap}.footer-links a{color:#fff;text-decoration:none}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;display:none}.modal-bg.open{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(470px,100%);background:#fff;padding:28px;overflow:auto}.drawer-head{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#eee;width:38px;height:38px;border-radius:50%;font-size:20px}.cart-item{display:grid;grid-template-columns:1fr auto;gap:10px;padding:18px 0;border-bottom:1px solid var(--line)}.qty{display:flex;gap:8px;align-items:center}.qty button{border:1px solid #ddd;background:#fff;width:30px;height:30px;border-radius:7px}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:900;padding:22px 0}.notice{background:#f5f5f5;padding:13px;border-radius:10px;color:#555;font-size:13px}
+.checkout-box{max-width:700px;margin:auto}.field{margin:14px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px}.checkout-summary{border:1px solid #ddd;border-radius:14px;padding:18px;margin:20px 0}
+.page{display:none}.page.active{display:block}
+@media(max-width:800px){header{padding:0 5%}nav a{display:none}.hero,.about{grid-template-columns:1fr}.hero{padding:55px 6%}.hero-art{min-height:300px}.strip{grid-template-columns:1fr 1fr}.products{grid-template-columns:1fr}.policy-grid{grid-template-columns:1fr 1fr}section{padding:65px 6%}footer{flex-direction:column}.hero h1{font-size:58px}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#home">SONSA<sup>™</sup></a>
+  <nav>
+    <a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#policies">POLICIES</a>
+    <button class="cart-btn" onclick="openCart()">KOŠÍK <span id="cartCount" class="count">0</span></button>
+  </nav>
+</header>
+
+<main>
+<div id="home" class="page active">
+<section class="hero">
+  <div>
+    <span class="badge">SONSA™ ORIGINAL</span>
+    <h1>SMART.<br>USEFUL.<br>SONSA.</h1>
+    <p>Moderné a praktické produkty, ktoré majú zmysel v každodennom živote. Jednoduchý dizajn. Žiadne zbytočnosti.</p>
+    <a class="btn" href="#shop">SHOP NOW →</a>
+  </div>
+  <div class="hero-art"><div class="light"></div></div>
+</section>
+<div class="strip">
+ <div><b>⚡ Praktické</b><span>Produkty pre každý deň.</span></div>
+ <div><b>✦ Minimalistické</b><span>Jednoduchý SONSA dizajn.</span></div>
+ <div><b>📦 Doručenie</b><span>Informácie pri checkoute.</span></div>
+ <div><b>✓ Bez zbytočností</b><span>Vyberáme užitočné veci.</span></div>
+</div>
+<section id="shop">
+ <div class="section-head"><div><h2>SHOP</h2><p>Vyber si z aktuálnej ponuky SONSA™.</p></div></div>
+ <div class="products">
+   <article class="card">
+    <div class="product-img"><div class="led-art"></div></div>
+    <div class="card-body">
+      <h3>SONSA™ Motion Light</h3><div class="desc">Nabíjateľné LED svetlo s pohybovým senzorom. Ideálne do skrine, chodby alebo pod skrinky.</div>
+      <div class="price">14,99 €</div>
+      <div class="card-actions"><button class="btn" onclick="addToCart('led')">PRIDAŤ DO KOŠÍKA</button><button class="btn secondary" onclick="buyNow('led')">KÚPIŤ</button></div>
+    </div>
+   </article>
+   <article class="card">
+    <div class="product-img"><div class="organizer-art"></div></div>
+    <div class="card-body">
+      <h3>SONSA™ Tech Organizer</h3><div class="desc">Kompaktné puzdro na káble, nabíjačky, slúchadlá a ďalšie drobnosti na cestovanie aj každý deň.</div>
+      <div class="price">16,99 €</div>
+      <div class="card-actions"><button class="btn" onclick="addToCart('organizer')">PRIDAŤ DO KOŠÍKA</button><button class="btn secondary" onclick="buyNow('organizer')">KÚPIŤ</button></div>
+    </div>
+   </article>
+ </div>
+</section>
+
+<section id="about" class="about">
+ <div><span class="badge">ABOUT SONSA™</span><h2>Smart things.<br>Better everyday.</h2></div>
+ <div><p>SONSA™ je moderný online obchod zameraný na jednoduché, užitočné a vizuálne čisté produkty. Produkty prezentujeme pod vlastným obchodným názvom; informácie o výrobcovi a bezpečnosti sú uvedené podľa požiadaviek platných pre konkrétny výrobok.</p></div>
+</section>
+
+<section id="policies">
+ <div class="section-head"><div><h2>INFO</h2><p>Dôležité informácie pred nákupom.</p></div></div>
+ <div class="policy-grid">
+  <div class="policy"><h3>🚚 Doprava</h3><p>Spôsob a cena dopravy sa zobrazia pri checkoute podľa nastavenia obchodu.</p></div>
+  <div class="policy"><h3>↩️ Vrátenie</h3><p>Podmienky vrátenia a odstúpenia od zmluvy budú uvedené v aktuálnej politike obchodu.</p></div>
+  <div class="policy"><h3>🔒 Súkromie</h3><p>Osobné údaje používame len v rozsahu potrebnom na vybavenie objednávky a fungovanie služby.</p></div>
+  <div class="policy"><h3>📜 Podmienky</h3><p>Pred spustením predaja treba doplniť skutočné údaje prevádzkovateľa a právne texty.</p></div>
+ </div>
+</section>
+</div>
+
+<div id="checkout" class="page">
+<section class="checkout-box">
+ <a href="#home" onclick="showHome()">← SPÄŤ DO OBCHODU</a>
+ <h1>CHECKOUT</h1>
+ <div id="checkoutSummary" class="checkout-summary"></div>
+ <div class="notice">Platba sa otvorí v zabezpečenom checkout-e platobnej služby. Údaje o karte sa neposielajú do tohto webu.</div>
+ <div class="field"><label>Meno a priezvisko</label><input id="name" autocomplete="name"></div>
+ <div class="field"><label>E-mail</label><input id="email" type="email" autocomplete="email"></div>
+ <button class="btn" style="width:100%" onclick="startCheckout()">POKRAČOVAŤ K PLATBE →</button>
+ <p id="checkoutError" style="color:#b00020"></p>
+</section>
+</div>
+</main>
+
+<div id="cartBg" class="modal-bg" onclick="if(event.target===this)closeCart()">
+ <aside class="drawer">
+  <div class="drawer-head"><h2>KOŠÍK</h2><button class="close" onclick="closeCart()">×</button></div>
+  <div id="cartItems"></div>
+  <div id="emptyCart" class="notice">Košík je zatiaľ prázdny.</div>
+  <div class="total"><span>SPOLU</span><span id="cartTotal">0,00 €</span></div>
+  <button class="btn" style="width:100%" onclick="goCheckout()">CHECKOUT →</button>
+ </aside>
+</div>
+
+<footer>
+ <div><div class="logo">SONSA<sup>™</sup></div><p style="color:#aaa">Smart things. Better everyday.</p></div>
+ <div class="footer-links"><a href="#policies">Privacy</a><a href="#policies">Terms</a><a href="#policies">Shipping</a><a href="#policies">Returns</a><a href="https://instagram.com/sonsa_2026_" target="_blank" rel="noopener">Instagram</a></div>
+</footer>
+
+<script>
+const PRODUCTS={
+ led:{name:'SONSA™ Motion Light',price:14.99},
+ organizer:{name:'SONSA™ Tech Organizer',price:16.99}
+};
+let cart=JSON.parse(localStorage.getItem('sonsa_cart')||'{}');
+function save(){localStorage.setItem('sonsa_cart',JSON.stringify(cart));renderCart()}
+function addToCart(id){cart[id]=(cart[id]||0)+1;save();openCart()}
+function buyNow(id){cart={ [id]:1 };save();goCheckout()}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save()}
+function renderCart(){
+ let box=document.getElementById('cartItems'), html='',count=0,total=0;
+ Object.entries(cart).forEach(([id,q])=>{let p=PRODUCTS[id];count+=q;total+=p.price*q;html+=`<div class="cart-item"><div><b>${p.name}</b><br><small>${p.price.toFixed(2).replace('.',',')} € / ks</small></div><div class="qty"><button onclick="changeQty('${id}',-1)">−</button><span>${q}</span><button onclick="changeQty('${id}',1)">+</button></div></div>`});
+ box.innerHTML=html;document.getElementById('emptyCart').style.display=count?'none':'block';document.getElementById('cartTotal').textContent=total.toFixed(2).replace('.',',')+' €';document.getElementById('cartCount').textContent=count;
+}
+function openCart(){document.getElementById('cartBg').classList.add('open');renderCart()}
+function closeCart(){document.getElementById('cartBg').classList.remove('open')}
+function goCheckout(){
+ if(!Object.keys(cart).length){openCart();return}
+ closeCart();document.getElementById('home').classList.remove('active');document.getElementById('checkout').classList.add('active');history.pushState({},'', '#checkout');renderCheckout()
+}
+function showHome(){document.getElementById('checkout').classList.remove('active');document.getElementById('home').classList.add('active')}
+function renderCheckout(){
+ let html='',total=0;
+ Object.entries(cart).forEach(([id,q])=>{let p=PRODUCTS[id];let t=p.price*q;total+=t;html+=`<div style="display:flex;justify-content:space-between;margin:8px 0"><span>${p.name} × ${q}</span><b>${t.toFixed(2).replace('.',',')} €</b></div>`});
+ document.getElementById('checkoutSummary').innerHTML=html+`<hr><div style="display:flex;justify-content:space-between"><b>Medzisúčet</b><b>${total.toFixed(2).replace('.',',')} €</b></div>`;
+}
+async function startCheckout(){
+ const email=document.getElementById('email').value.trim(),name=document.getElementById('name').value.trim();
+ const err=document.getElementById('checkoutError');err.textContent='';
+ if(!name||!email||!email.includes('@')){err.textContent='Vyplň meno a platný e-mail.';return}
+ const items=Object.entries(cart).map(([id,quantity])=>({id,quantity}));
+ try{
+  const r=await fetch('/api/checkout',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({items,email,name})});
+  const data=await r.json();
+  if(!r.ok)throw new Error(data.error||'Checkout sa nepodarilo vytvoriť.');
+  if(data.url)location.href=data.url; else throw new Error('Chýba checkout URL.');
+ }catch(e){err.textContent=e.message+' Ak ešte nemáš nastavenú platobnú službu, checkout zatiaľ nebude aktívny.'}
+}
+renderCart();
+window.addEventListener('popstate',()=>{if(location.hash==='#checkout')goCheckout();else showHome()});
+</script>
+</body>
+</html>
 
